@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+  <button onclick="callAPI();">call api</button>
+  <script>
+      document.cookie = "cookie1=value; cookie2=value; cookie3=value;"
+      
+      callAPI = async () => {
+        const url = '/users';
+
+        const data = {
+          'kane': 'a i go nan'
+        };
+
+        const config = {
+          headers: {
+            'Cookie': 'cookie1=value; cookie2=value; cookie3=value;',
+            'Apple': 'Apple'
+          },
+          // withCredentials: true
+        };
+
+        try {
+          const result = await axios.post(url, data, config)
+
+          console.log(result);
+          
+        } catch (error) {
+          
+        }
+      }
+  </script>
+</body>
+</html>
